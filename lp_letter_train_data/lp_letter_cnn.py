@@ -19,7 +19,7 @@ class CNN:
 
 	def convert_to_array(self, l):
 		all_chars_list = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-		index = all_chars_list.index(l)
+		index = all_chars_list.index(l.upper())
 		label = np.zeros(26)
 		label[index] = 1
 		return label
@@ -97,7 +97,7 @@ class CNN:
 		self.reset_weights(conv_model)
 		history_conv = conv_model.fit(X_train_dataset, Y_train_dataset, 
                               validation_data=(X_val_dataset, Y_val_dataset), 
-                              epochs=15, 
+                              epochs=8, 
                               batch_size=16)
 		print(history_conv)
 		conv_model.save('/home/fizzer/train_cnn/lp_letter_train_data/lp_letter_model')

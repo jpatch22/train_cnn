@@ -14,7 +14,7 @@ class Data_Gen_Num:
 		collected_images_labels = os.listdir("/home/fizzer/train_cnn/p_id_training/collected_data")
 		self.images = []
 		for cil in collected_images_labels:
-			self.images.append((cil[0], cv2.imread("/home/fizzer/train_cnn/p_id_training/collected_data/" + cil)))
+			self.images.append((cil, cv2.imread("/home/fizzer/train_cnn/p_id_training/collected_data/" + cil)))
 		print(len(self.images))
 
 	def copy(self):

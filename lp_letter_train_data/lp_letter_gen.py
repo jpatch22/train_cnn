@@ -9,12 +9,12 @@ class Data_Gen_Num:
 	def __init__(self):
 		files = os.listdir("/home/fizzer/train_cnn/lp_letter_train_data/adjusted_data")
 		for file in files:
-			os.remove("/home/fizzer/train_cnn/lp_letter_train_data/adjusted_data" + file)
+			os.remove("/home/fizzer/train_cnn/lp_letter_train_data/adjusted_data/" + file)
 
 		collected_images_labels = os.listdir("/home/fizzer/train_cnn/lp_letter_train_data/collected_data")
 		self.images = []
 		for cil in collected_images_labels:
-			self.images.append((cil[0], cv2.imread("/home/fizzer/train_cnn/lp_letter_train_data/collected_data/" + cil)))
+			self.images.append((cil, cv2.imread("/home/fizzer/train_cnn/lp_letter_train_data/collected_data/" + cil)))
 		print(len(self.images))
 
 	def copy(self):
@@ -47,7 +47,7 @@ class Data_Gen_Num:
 
 x = Data_Gen_Num()
 x.copy()
-for i in range(1, 20):
+for i in range(1, 21, 2):
 	x.generate_blur(i)
-for i in range(-20, 20, 1):
+for i in range(-20, 20, 4):
 	x.generate_rotated_images(i)
